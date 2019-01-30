@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0070)https://www.fit.vutbr.cz/study/courses/IIS/private/projekt/doc.html.cs -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
+    
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu 
+     podle použitého editoru -->
+
+<h1>Veterinární klinika</h1> <!-- Nahradte názvem svého zadání -->
+
+<dl>
+	<dt>Autoři</dt>
+	<dd>Bronislav Bárteček <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xbarte14@stud.fit.vutbr.cz">xbarte14@stud.fit.vutbr.cz</a> -
+		prihlásovanie užívteľov a správa rolí, zobrazovanie dát, databáza
+	</dd>
+	<dd>Ksenia Bolshakova <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xbolsh00@stud.fit.vutbr.cz">xbolsh00@stud.fit.vutbr.cz</a> -
+		Zadávanie údajov, odstraňovanie údajov, databáza, testovanie
+	</dd>
+	<dt>URL aplikace</dt>
+	<dd><a href="http://www.stud.fit.vutbr.cz/~xbarte14/">http://www.stud.fit.vutbr.cz/~xbarte14/</a></dd>
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+<table>
+<tbody><tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>xbarte14</td><td>heslo14</td><td>Administrátor</td></tr>
+<tr><td>Doktor</td><td>heslo14</td><td>Doktor</td></tr>
+<tr><td>Sestra</td><td>heslo14</td><td>Sestra</td></tr>
+</tbody></table>
+
+<h2>Implementace</h2>
+<p>Stručná dokumentace k implementaci, která popisuje, které PHP skripty implementují jednotlivé případy použití uvedené v use-case diagramu z IDS. V případě, že bylo nutno při implementaci učinit změny v návrhu, musí být v dokumentaci zdůvodněny.</p>
+<p>Bol zachovaný use-case diagram z predmetu IDS až na jednu úpravu. Doktor si vie zobraziť iných doktorov a to pre potreby zobrazenia liecieb inych doktorov. Zdalo sa nám praktické mu dať túto možnosť.</p>
+<p>Na začiatku každého súboru/funkcie sa skontroluje správne Session (ID), a ak používaťeľ nemá na danú akciu nárok, tak ho to presmeruje na domovskú stránku (z hľadiska bezpečnosti aby nemohol vykonať akcie po zadaní správnej URL). Heslá sa odosielajú na server po zahashovaní a preto ani admin ich nedokáže odhaliť.</p>
+<p>Ďalej sa na začiatku každého skriptu vygeneruje menu, položky sa zobrazia podľa toho akú rolu hraje daný užívateľ v systéme. </p>
+<p>Jednotlivé súbory pre jednotlivé stránky sú podobné pre názornosť použijem stránku doktora v roli admina. </p>
+<ul>
+	<li>doctor.php - zobrazenie a vyhľadávanie doktorov, ich odstránenie</li>
+	<li>add_doctor.php - pridávanie doktorov do systému</li>
+	<li>change_pswd.php - zmena hesla</li>
+	<li>edit_doctor.php - úprava doktora</li>
+	<li>show_zvierata.php - zobrazenie doktorovych liecieb</li>
+	<li>menu.php - zobrazenie menu</li>
+	<li>logout.php - odhlásenie</li>
+	<li>index.php - prihlásenie</li>
+
+
+</ul>
+<p> </p>
+
+
+<h2>Instalace</h2>
+<ul>
+	<li>Uloženie zdrojových súborov na server, nastavenie prístupu, funkčné internetové pripojenie (kvôli Bootstrap 4)</li>
+<li>PHP 5+</li>
+<li>Importovať databázu zo súboru database.sql a nastaviť správne connection string v connect.php</li>
+</ul>
+
+<h2>Známé problémy</h2>
+<p>Chýbajú tabuľky oproti IDS choroba a druh_zvierata. Tabuľka Podáva premenovaná na Podaný liek. Upravené spojenia medzi tabulkami Personál - Podaný liek, liek - Liečba a to praktickejším spôsobom.</p>
+
+
+
+</body></html>
